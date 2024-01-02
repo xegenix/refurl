@@ -1,0 +1,6 @@
+name = "refurl"
+main = "src/index.ts"
+compatibility_date = "2024-01-02"
+kv_namespaces = [
+{ binding = "refURLs", id = "093fdf2bcb914a249c3072035dbb5613", preview_id = "aab095de666749d28f0a47360e2f9ced" }
+]
