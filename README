@@ -1,0 +1,19 @@
+# README 
+
+### cf-refURLs
+
+Greetings! The following content is one method to shorten URLs via your own domain name using Cloudflare.
+
+Upon calling a pre-designated URL path, the path key will return the associated URL using a 301 redirect.
+
+Example: 
+
+Visiting my domain with an appended path of "/linkedin" results in triggering a 301 redirect to the value associated to that path.
+
+In this specific instance, the user would be redirected to https://linkedin.com/in/insecurity
+
+Key		Value
+/linkedin	https://linkedin.com/in/insecurity
+/github		https://github.com/xegenix
+/blog		https://nullidle.com
+
