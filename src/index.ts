@@ -9,6 +9,7 @@
  */
 
 export interface Env {
+	refURLs: KVNamespace;
 	// Example binding to KV. Learn more at https://developers.cloudflare.com/workers/runtime-apis/kv/
 	// MY_KV_NAMESPACE: KVNamespace;
 	//
@@ -19,29 +20,32 @@ export interface Env {
 	// MY_BUCKET: R2Bucket;
 }
 
-const shortURLs = {
-	"/github": "https://github.com/xegenix",
-	"/www": "https://nullidle.com",
-	"/nullidle": "https://nullidle.com",
-	"/store": "https://toxiculture.com",
-	"/linkedin": "https://linkedin.com/in/insecurity",
-} as Record<any, string>;
+// Uncomment for testing key value associations offline. 
+// const refURL = {
+// 	"/github": "https://github.com/xegenix",
+// 	"/www": "https://nullidle.com",
+// 	"/nullidle": "https://nullidle.com",
+// 	"/store": "https://toxiculture.com",
+// 	"/linkedin": "https://linkedin.com/in/insecurity",
+// } as Record<any, string>;
 
 export default {
 	async fetch(
 		request: Request,
-		_env: Env,
+		env: Env,
 		_ctx: ExecutionContext
 	): Promise<Response> {
+		
 		const url = new URL(request.url);
+		
 		const { pathname } = url;
-		const redirectURL = shortURLs[pathname];
+		
+		const redirectURL = refURL[pathname];
 		
 		if (!redirectURL) {
-		  return new Response(
-			  `There is no defined URL for the requested path: '${pathname}', sorry!` );
+		  return new Response(`Non-existant pathname: '${pathname}', <br/>Verify the URL entered is accurate!`);
 	}
 
 	return Response.redirect(redirectURL, 301);
-}, 
+  }, 
 };

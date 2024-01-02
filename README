@@ -2,7 +2,9 @@
 
 ### cf-refURLs
 
-Greetings! The following content is one method to shorten URLs via your own domain name using Cloudflare.
+#### WARNING: Project is incomplete, do not use at this time. 
+
+Greetings! The following concept is one method to shorten URLs via your own domain name using Cloudflare.
 
 Upon calling a pre-designated URL path, the path key will return the associated URL using a 301 redirect.
 
